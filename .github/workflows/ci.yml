@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Node.js CI con reporte HTML
 
 on:
   push:
@@ -12,23 +12,25 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x]  # O la versión que uses
+        node-version: [18.x]
 
     steps:
-      # 1️⃣ Clonar el repositorio
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 2️⃣ Configurar Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
 
-      # 3️⃣ Instalar dependencias
       - name: Install dependencies
         run: npm install
 
-      # 4️⃣ Ejecutar tests
       - name: Run tests
         run: npm test
+
+      - name: Upload HTML test report
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-report
+          path: test-results/test-report.html

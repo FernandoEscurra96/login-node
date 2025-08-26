@@ -20,6 +20,19 @@
   },
   "devDependencies": {
     "jest": "^30.0.5",
+    "jest-html-reporter": "^4.3.0",
     "supertest": "^7.1.4"
-  }
+  },
+  "jest": {
+  "reporters": [
+    "default",
+    ["jest-html-reporter", {
+      "pageTitle": "Reporte de Tests",
+      "outputPath": "test-results/test-report.html",
+      "includeFailureMsg": true,
+      "includeConsoleLog": true
+    }]
+  ]
+}
+
 }
