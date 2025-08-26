@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login con Supabase</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width:700px; margin:40px auto; padding:0 20px; }
+    form { margin-bottom:20px; padding:12px; border:1px solid #ddd; border-radius:6px; }
+    input { display:block; margin:8px 0; padding:8px; width:100%; box-sizing:border-box; }
+    button { padding:8px 12px; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <h1>Supabase Auth — Registro / Login</h1>
+
+  <form action="/register" method="POST">
+    <h2>Registro</h2>
+    <input type="email" name="email" placeholder="Tu correo" required />
+    <input type="password" name="password" placeholder="Contraseña (mín 6 caracteres)" minlength="6" required />
+    <button type="submit">Registrarme</button>
+  </form>
+
+  <form action="/login" method="POST">
+    <h2>Iniciar sesión</h2>
+    <input type="email" name="email" placeholder="Tu correo" required />
+    <input type="password" name="password" placeholder="Contraseña" required />
+    <button type="submit">Entrar</button>
+  </form>
+
+  <p>Luego de iniciar sesión irás a <code>/dashboard</code>.</p>
+</body>
+</html>
